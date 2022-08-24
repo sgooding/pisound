@@ -4,6 +4,7 @@ import os
 
 from gpiozero import Button
 from signal import pause
+import time
 
 from .convert import convert
 
@@ -19,15 +20,16 @@ assigned_sounds = dict()
 def button_pressed(button):
     global sounds
     global channels
+    global assigned_sounds
+    print(f'pressed: {button.pin}')
 
     if button.pin in channels:
-        is_busy = channels[button.pin].get_busy()
         print(f'Stop Playing: {assigned_sounds[button.pin]}')
-        if is_busy:
-            channels[button.pin].stop()
-            del channels[button.pin]
+        channels[button.pin].stop()
+        del channels[button.pin]
+        print(f'Removed: {assigned_sounds[button.pin]}')
     else:
-        print(f'Start Playing: {assigned_sounds[button.pin]}')
+        print(f'Create Sound and playing: {assigned_sounds[button.pin]}')
         channels[button.pin] = sounds[button.pin].play()
 
 
@@ -48,7 +50,7 @@ startup_sound.play()
 gpio_pins = [2,3,4,17]
 sounds = dict()
 for file, gpi_pin in zip(files[0:4],gpio_pins):
-    button = Button(gpi_pin)
+    button = Button(gpi_pin, pull_up=True)
     button.when_pressed = button_pressed
     sounds[button.pin] = pygame.mixer.Sound(file)
     assigned_sounds[button.pin] = file
