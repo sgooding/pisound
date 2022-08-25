@@ -1,10 +1,50 @@
 
 import os
 import glob
+import time
+import shutil
 from pydub import AudioSegment
 
-def convert():
+def automount_usb():
+    if not os.path.exists('/dev/sda1'):
+        print('No USB Drive')
+        return
+    
+    print('trying to mount /dev/sda1')
+    os.system('sudo mount -t vfat /dev/sda1 /mnt/usb0 -o umask=000')
+    time.sleep(1)
 
+    basedir = os.environ.get('MEDIA_PATH','/home/pi/media')
+    print('verify any mp3 files exist')
+    files = glob.glob('/mnt/usb0/*.mp3')
+
+    if len(files) == 0:
+        print(f'No files found.')
+        return
+
+    print(f'Found The Following Files: {files}')
+
+    if len(files) != 4:
+        print(f'EXACTLY 4 files must exist on the usb drive, not {len(files)}.')
+        return
+    
+    original_files = glob.glob(os.path.join(basedir,'*.mp3'))
+    original_files += glob.glob(os.path.join(basedir,'*.wav'))
+    print(f'Removing the following files from {original_files}')
+
+    for original_file in original_files:
+        if os.path.exists(original_file):
+            print(f'Removing: {original_file}')
+            os.remove(original_file)
+
+    for file in files:
+        print(f'Copy {file} to {basedir}')
+        shutil.copy(file,basedir)
+        
+    print(f'Completed USB Copy')
+
+
+def convert():
 
     basedir = os.environ.get('MEDIA_PATH','/home/pi/media')
 

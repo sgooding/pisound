@@ -14,7 +14,7 @@ class State:
 
         self.button = Button( self.gpio_pin, 
                               pull_up=True,
-                              hold_time=10 )
+                              hold_time=5 )
         self.sound = pygame.mixer.Sound(self.file)
 
         self._last_toggle = time.time()

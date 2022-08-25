@@ -5,11 +5,13 @@ import os
 from signal import pause
 import time
 
-from pisound.convert import convert
+from pisound.convert import automount_usb, convert
 from pisound.state import State
 from pisound import __version__
 
 states = dict()
+
+automount_usb()
 
 convert()
 
