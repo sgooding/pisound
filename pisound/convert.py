@@ -43,6 +43,7 @@ def automount_usb():
         
     print(f'Completed USB Copy')
 
+    os.system('sudo umount /mnt/usb0')
 
 def convert():
 
