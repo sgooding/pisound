@@ -1,7 +1,7 @@
 from distutils.core import setup
-
+from pisound import __version__
 setup(name='pisound',
-      version='1.2',
+      version=__version__,
       description='Raspberry pi sound board',
       author='Sean Gooding',
       author_email='sgooding@gmail.com',
