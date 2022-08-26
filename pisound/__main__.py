@@ -25,7 +25,10 @@ def startup():
     startup_sound.play()
 
 def shutdown_pi():
+    global states
     print('Good Bye')
+    del states
+
     shutdown = os.path.join(MEDIA_PATH,"startup","shutdown.wav")
 
     pygame.mixer.stop()
