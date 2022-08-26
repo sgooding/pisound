@@ -8,7 +8,7 @@ import pygame
 
 
 def play_loading_sound(loading_wav_file):
-    print(f'playing: {loading_sound}')
+    print(f'playing: {loading_wav_file}')
     loading_sound = pygame.mixer.Sound(loading_wav_file)
     loading_sound.play()
 
