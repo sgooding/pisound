@@ -8,6 +8,7 @@ setup(name='pisound',
       url='https://github.com/sgooding/pisound',
       packages=['pisound'],
       install_requires=['pydub==0.24.1',
-                        'gpiozero==1.6.2'
+                        'gpiozero==1.6.2',
+                        'pygame==1.9.6'
                        ]
      )
