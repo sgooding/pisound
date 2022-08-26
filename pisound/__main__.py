@@ -9,13 +9,10 @@ from pisound.convert import automount_usb, convert
 from pisound.state import State
 from pisound import __version__
 
-states = dict()
-
-automount_usb()
-
-convert()
 
 pygame.mixer.init()
+
+states = dict()
 
 def button_pressed(button):
     if button.value == 1:
@@ -44,7 +41,13 @@ MEDIA_PATH=os.environ.get('MEDIA_PATH','/home/pi/media')
 if not os.path.exists(MEDIA_PATH):
     raise FileNotFoundError('Could not find media path file.')
 
+
+
 startup()
+
+automount_usb()
+convert()
+
 
 # Assign Buttons
 files = glob.glob(os.path.join(MEDIA_PATH,"*.wav"))
