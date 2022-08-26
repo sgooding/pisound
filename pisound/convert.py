@@ -18,7 +18,7 @@ def automount_usb():
         return
     
     print('trying to mount /dev/sda1')
-    os.system('sudo mount -t vfat /dev/sda1 /mnt/usb0 -o umask=000')
+    os.system('sudo mount -t vfat /dev/sda1 /mnt/usb0')
     time.sleep(1)
 
     basedir = os.environ.get('MEDIA_PATH','/home/pi/media')
