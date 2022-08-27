@@ -8,20 +8,50 @@ Sound Board Features
 Hold down any button for 5 seconds. 
 
 ## Power On after soft shutdown
-Push io button 3
+Push button 2 or GPIO3 on pin 5.
 
 ## USB Stick Sound Upload
 1. Power off raspberry pi.
-2. Add exactly 4 songs to any USB key. .mp3 only
+2. Add exactly 4 songs to any USB key. .mp3 files only!
+Files should look like this on the USB Key:
+```
+F:\any_song.mp3
+F:\any_song2.mp3
+F:\any_song3.mp3
+F:\any_song4.mp3
+```
 3. Insert USB Stick into raspberry pi USB slot.
 4. Power on the raspberry pi.
-5. Wait for boot sound to play.
+5. Wait for boot sound to play. Elevator music will play if any new files need conversion.
 
+# Installation
+```
+# 1. Download the Code.
+git clone https://github.com/sgooding/pisound.git
+# 2. Install dependencies
+sudo apt-get update; sudo apt-get install -y libsdl-dev
+# 3. Install pisound
+cd pisound
+./scripts/install.sh
+# Sound should be playing at this point.
+```
 
 # Setup
 
+## Buttons
+![Alt text](img/pi_board.png?raw=true "Raspberry Pi Pinout")
+
+|Button|IO Pin|Pin|
+|--------|--------|--|
+|Button 1|GPIO2 | 3|
+|Button 2|GPIO3 | 5|
+|Button 3|GPIO4 | 7|
+|Button 4|GPIO17| 11|
+|Ground  |GND | 39 |
+
+
 ## apt dependencies
-sudo apt install python3-pygame python3-gpiozero python3-pydub
+sudo apt install python3-pygame python3-gpiozero python3-pydub libsdl-dev
 
 ## samba
 Warning: this slows boot when remote.
