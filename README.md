@@ -11,11 +11,11 @@ Hold down any button for 5 seconds.
 Push io button 3
 
 ## USB Stick Sound Upload
-Power off raspberry pi.
-Add exactly 4 songs to any USB key. .mp3 only
-Insert USB Stick into raspberry pi USB slot.
-Power on the raspberry pi.
-Wait for boot sound to play.
+1. Power off raspberry pi.
+2. Add exactly 4 songs to any USB key. .mp3 only
+3. Insert USB Stick into raspberry pi USB slot.
+4. Power on the raspberry pi.
+5. Wait for boot sound to play.
 
 
 # Setup
