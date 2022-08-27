@@ -1,12 +1,30 @@
 # Pi Sound Board
 A simple key sound board.
 
+# Usage
+Sound Board Features
+
+## Power Off
+Hold down any button for 5 seconds. 
+
+## Power On after soft shutdown
+Push io button 3
+
+## USB Stick Sound Upload
+Power off raspberry pi.
+Add exactly 4 songs to any USB key. .mp3 only
+Insert USB Stick into raspberry pi USB slot.
+Power on the raspberry pi.
+Wait for boot sound to play.
+
+
 # Setup
 
 ## apt dependencies
 sudo apt install python3-pygame python3-gpiozero python3-pydub
 
 ## samba
+Warning: this slows boot when remote.
 1. sudo apt install samba samba-common-bin
 2. mkdir /home/pi/media
 3. chmod -R a+rwX /home/pi/media
