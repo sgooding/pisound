@@ -20,8 +20,20 @@ Push io button 3
 
 # Setup
 
+## Buttons
+![Alt text](img/pi_board.png?raw=true "Raspberry Pi Pinout")
+
+|Button|IO Pin|Pin|
+|--------|--------|--|
+|Button 1|GPIO2 | 3|
+|Button 2|GPIO3 | 5|
+|Button 3|GPIO4 | 7|
+|Button 4|GPIO17| 11|
+|Ground  |GND | 39 |
+
+
 ## apt dependencies
-sudo apt install python3-pygame python3-gpiozero python3-pydub
+sudo apt install python3-pygame python3-gpiozero python3-pydub libsdl-dev
 
 ## samba
 Warning: this slows boot when remote.
